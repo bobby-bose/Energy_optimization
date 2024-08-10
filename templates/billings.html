@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Fonts - Poppins -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .payment-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .total-amount {
+      font-size: 24px;
+      font-weight: bold;
+      color: black;
+    }
+    .payment-methods {
+      margin-top: 20px;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      margin-bottom: 10px;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .bordered-container {
+      border: 2px solid #28a745;
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container payment-container">
+    <div class="bordered-container">
+      <div class="row">
+        <div class="col">
+          <div class="total-amount"><h3>Total payment amount for {{current_month_name}} : {{total_value}}</h3></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container payment-container">
+        <div class="bordered-container">
+      <div class="row">
+        <div class="col">
+          <div class="payment-methods">
+            <div class="total-amount"><h3>Choose Your Payment method</h3></div>
+            <!-- Each button is placed inside its own div -->
+            <div>
+              <button type="button" class="btn btn-primary">
+                <i class="fab fa-google-pay mr-2"></i> Google Pay
+              </button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-primary">
+                <i class="fas fa-money-bill-alt mr-2"></i> Payment
+              </button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-primary">
+                <i class="far fa-credit-card mr-2"></i> Card (Debit/Credit)
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

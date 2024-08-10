@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Kitchen Appliance Usage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .card {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px; /* Adjust the max-width as needed */
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+        .navbar {
+            background-color: #f8f9fa; /* Change background color */
+        }
+
+        .navbar-brand {
+            font-weight: bold; /* Increase font weight for brand */
+            color: green; /* Change text color for brand */
+        }
+
+        .navbar-nav .nav-link {
+            color: #6c757d; /* Change text color for nav links */
+        }
+
+        /* Right align items in navbar */
+        .ml-auto {
+            margin-left: auto !important; /* Align items to the right */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="{% static 'logo.png' %}" alt="Your Logo" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="{%url 'bedroom_create' %}">Bedroom </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'kitchen_appliance_create' %}">Kitchen</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'dininghall_create' %}">Dining Hall</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="{%url 'livingroom_create' %}">Living Room</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{%url 'bathroom_create' %}">Bathroom </a>
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto"> <!-- Align items to the right -->
+            <li class="nav-item">
+                <button class="btn btn-success me-2"><a class="nav-link" href="{%url 'kitchen_appliance_list' %}" style="color: white;">View List</a></button>
+              </li>
+
+            #
+            <li class="nav-item">
+                <button class="btn btn-success"><a class="nav-link" href="{%url 'logout' %}" style="color: white;">Logout</a></button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{%static 'kitchen.avif' %}" alt="Your Image" class="img-fluid" style="height: 700px;"> <!-- Set your image URL and make it responsive -->
+            </div>
+            <div class="col-md-6">
+                <div class="card"> <!-- Align card to the right -->
+                    <div class="card-body">
+                        <h1 class="card-title"> Kitchen Appliance Usage</h1>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                {{ form.kitchen_name.label_tag }}
+                                {{ form.kitchen_name }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form.appliance_name.label_tag }}
+                                {{ form.appliance_name }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form.wattage.label_tag }}
+                                {{ form.wattage }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form.quantity.label_tag }}
+                                {{ form.quantity }}
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    {{ form.jan.label_tag }}
+                                    {{ form.jan }}
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    {{ form.feb.label_tag }}
+                                    {{ form.feb }}
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    {{ form.mar.label_tag }}
+                                    {{ form.mar }}
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    {{ form.apr.label_tag }}
+                                    {{ form.apr }}
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    {{ form.may.label_tag }}
+                                    {{ form.may }}
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    {{ form.jun.label_tag }}
+                                    {{ form.jun }}
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    {{ form.jul.label_tag }}
+                                    {{ form.jul }}
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    {{ form.aug.label_tag }}
+                                    {{ form.aug }}
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    {{ form.sep.label_tag }}
+                                    {{ form.sep }}
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    {{ form.oct.label_tag }}
+                                    {{ form.oct }}
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    {{ form.nov.label_tag }}
+                                    {{ form.nov }}
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    {{ form.dec.label_tag }}
+                                    {{ form.dec }}
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .faq-section {
+            margin-top: 50px;
+        }
+        .faq-list {
+            list-style: none;
+            padding: 0;
+        }
+        .faq-item {
+            margin-bottom: 30px;
+        }
+        .contact-info {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row faq-section">
+        <div class="col-lg-12 text-center">
+            <h1 class="text-danger font-weight-bold">Customer Support</h1>
+        </div>
+    </div>
+    <div class="row faq-section">
+        <div class="col-lg-12">
+            <h2 class="font-weight-bold">Frequently Asked Questions</h2>
+            <ul class="faq-list">
+                <li class="faq-item">
+                    <h3 class="font-weight-bold">What is your website about?</h3>
+                    <p class="partial-answer">... <a href="#" class="toggle-answer">Read More</a></p>
+                    <p class="full-answer d-none">Our website focuses on optimizing household energy consumption to help users reduce their energy bills and environmental impact.</p>
+                </li>
+                <li class="faq-item">
+                    <h3 class="font-weight-bold">What services do you offer?</h3>
+                    <p class="partial-answer">... <a href="#" class="toggle-answer">Read More</a></p>
+                    <p class="full-answer d-none">We offer tips to help users identify and implement energy-saving strategies tailored to their home.</p>
+                </li>
+                <li class="faq-item">
+                    <h3 class="font-weight-bold">How can your website help me save energy?</h3>
+                    <p class="partial-answer">... <a href="#" class="toggle-answer">Read More</a></p>
+                    <p class="full-answer d-none">We provide personalized recommendations, energy-saving guides, and tools such as energy calculators to help users make informed decisions about reducing their energy usage.
+.</p>
+                </li>
+                <li class="faq-item">
+                    <h3 class="font-weight-bold">Is your website suitable for all types of households?</h3>
+                    <p class="partial-answer">... <a href="#" class="toggle-answer">Read More</a></p>
+                    <p class="full-answer d-none">Yes, our website caters to a wide range of households, from apartments to single-family homes, and offers solutions applicable to various energy needs.
+.</p>
+                </li>
+                <li class="faq-item">
+                    <h3 class="font-weight-bold">Do you offer any professional consultation services?</h3>
+                    <p class="partial-answer">... <a href="#" class="toggle-answer">Read More</a></p>
+                    <p class="full-answer d-none">While we primarily provide self-help resources, we may offer consultation services or partnerships with energy experts in the future. Currently, our focus is on empowering users to make independent energy-saving choices.
+</li>
+                <!-- Other FAQ items -->
+                  <li class="faq-item">
+                    <h3 class="font-weight-bold">How can I learn more about a specific recommendation?</h3>
+                    <p class="partial-answer">... <a href="#" class="toggle-answer">Read More</a></p>
+                    <p class="full-answer d-none">Contact EnerGenie support for further explanation and potential impact on your appliances.
+</li>
+
+
+
+
+
+            </ul>
+            <div class="row faq-section">
+        <div class="col-lg-12">
+            <h2 class="font-weight-bold">Take the next step</h2>
+            <p>Talk to our experts. Tell us what you're looking for. Our experts will work with you to design the system that's right for you.</p>
+            <div class="contact-info">
+                <p>Contact: 9897988767</p>
+                <p>Email: energynie@gmail.com</p>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+    <!-- Other sections -->
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.toggle-answer').on('click', function(e) {
+            e.preventDefault();
+            $(this).closest('.faq-item').find('.partial-answer').toggleClass('d-none');
+            $(this).closest('.faq-item').find('.full-answer').toggleClass('d-none');
+        });
+    });
+</script>
+
+</body>
+</html>

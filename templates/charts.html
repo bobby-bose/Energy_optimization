@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with 12 Months</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar {
+            justify-content: space-between;
+        }
+
+        .navbar-nav {
+            flex-direction: row;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1rem;
+        }
+        .btn{
+        color:white;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item" style="margin-left: 3%;"><a href="{% url 'january' %}" class="btn btn-primary nav-link" style="color: white; font-weight: bold; font-family: 'Roboto', sans-serif;">January</a></li>
+<li class="nav-item" style="margin-left: 3%;"><a href="{% url 'february' %}" class="btn btn-primary nav-link" style="color: white; font-weight: bold; font-family: 'Roboto', sans-serif;">February</a></li>
+<li class="nav-item" style="margin-left: 3%;"><a href="{% url 'march' %}" class="btn btn-primary nav-link" style="color: white; font-weight: bold; font-family: 'Roboto', sans-serif;">March</a></li>
+<li class="nav-item" style="margin-left: 3%;"><a href="{% url 'april' %}" class="btn btn-primary nav-link" style="color: white; font-weight: bold; font-family: 'Roboto', sans-serif;">April</a></li>
+<li class="nav-item" style="margin-left: 3%;"><a href="{% url 'may' %}" class="btn btn-primary nav-link" style="color: white; font-weight: bold; font-family: 'Roboto', sans-serif;">May</a></li>
+<li class="nav-item" style="margin-left: 3%;"><a href="{% url 'june' %}" class="btn btn-primary nav-link" style="color: white; font-weight: bold; font-family: 'Roboto', sans-serif;">June</a></li>
+<li class="nav-item" style="margin-left: 3%;"><a href="{% url 'july' %}" class="btn btn-primary nav-link" style="color: white; font-weight: bold; font-family: 'Roboto', sans-serif;">July</a></li>
+<li class="nav-item" style="margin-left: 3%;"><a href="{% url 'august' %}" class="btn btn-primary nav-link" style="color: white; font-weight: bold; font-family: 'Roboto', sans-serif;">August</a></li>
+<li class="nav-item" style="margin-left: 3%;"><a href="{% url 'september' %}" class="btn btn-primary nav-link" style="color: white; font-weight: bold; font-family: 'Roboto', sans-serif;">September</a></li>
+<li class="nav-item" style="margin-left: 3%;"><a href="{% url 'october' %}" class="btn btn-primary nav-link" style="color: white; font-weight: bold; font-family: 'Roboto', sans-serif;">October</a></li>
+<li class="nav-item" style="margin-left: 3%;"><a href="{% url 'november' %}" class="btn btn-primary nav-link" style="color: white; font-weight: bold; font-family: 'Roboto', sans-serif;">November</a></li>
+<li class="nav-item" style="margin-left: 3%;"><a href="{% url 'december' %}" class="btn btn-primary nav-link" style="color: white; font-weight: bold; font-family: 'Roboto', sans-serif;">December</a></li>
+
+            </ul>
+            
+            
+        </div>
+    </div>
+</nav>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

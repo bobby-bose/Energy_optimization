@@ -1,0 +1,44 @@
+<!-- edit_profile.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <!-- Add any necessary CSS stylesheets here -->
+</head>
+<body>
+    <h1>Edit Profile</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="form-group">
+            <label for="id_username">Username:</label>
+            {{ form.username }}
+            {{ form.username.errors }}
+        </div>
+        <div class="form-group">
+            <label for="id_email">Email:</label>
+            {{ form.email }}
+            {{ form.email.errors }}
+        </div>
+        <div class="form-group">
+            <label for="id_mobile_number">Mobile Number:</label>
+            {{ form.mobile_number }}
+            {{ form.mobile_number.errors }}
+        </div>
+        <div class="form-group">
+            <label for="id_district">District:</label>
+            {{ form.district }}
+            {{ form.district.errors }}
+        </div>
+        <div class="form-group">
+            <label for="id_profile_picture">Profile Picture:</label>
+            {{ form.profile_picture }}
+            {{ form.profile_picture.errors }}
+        </div>
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

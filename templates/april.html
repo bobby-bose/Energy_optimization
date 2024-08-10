@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charts</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include AnyChart library -->
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-bundle.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-data-adapter.min.js"></script>
+</head>
+<body>
+    <h2 style="margin-bottom: 20px; text-align: center;">Energy Consumption for April</h2>
+    <!-- Container to hold both charts in a row -->
+    <div style="display: flex; flex-direction: column;  width: 60%;">
+        <!-- Title for Energy Consumption for January -->
+
+        <!-- Container for the charts in a row -->
+        <div style="display: flex; flex-direction: row;">
+            <!-- HTML canvas element to draw the pie chart -->
+            <canvas id="myPieChart" width="700" height="400" style="margin-right: 20px;"></canvas>
+            <!-- Container for the scatter plot chart -->
+            <div id="scatterContainer" style="height: 30%; width: 30%;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Extracted data for the pie chart
+        var pieData = {{ apr }};
+
+        // Initialize a color array for pie chart segments
+        var colors = ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56', '#4bc0c0'];
+
+        // Get the canvas element for the pie chart
+        var pieCtx = document.getElementById('myPieChart').getContext('2d');
+
+        // Create a new pie chart instance
+        var pieChart = new Chart(pieCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Bathroom', 'Kitchen', 'Bedroom', 'Dininghall', 'Livingroom'],
+                datasets: [{
+                    label: 'Energy Consumption',
+                    data: pieData.flat(), // Flatten the data array
+                    backgroundColor: colors,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+            }
+        });
+
+        // Data for the scatter plot
+        var data = {{ apr }};
+
+        // Convert data to array of objects
+        var dataArray = [];
+        for (var key in data) {
+            dataArray.push({x: parseInt(key), y: data[key]});
+        }
+
+        // Create scatter plot chart
+        anychart.onDocumentReady(function() {
+            // Set chart type
+            var chart = anychart.scatter();
+
+            // Set chart title
+            chart.title('Energy Consumption vs Room');
+
+            // Set chart data
+            chart.data(dataArray);
+
+            // Set x-axis
+            chart.xAxis().title('Energy Consumption');
+
+            // Set y-axis
+            chart.yAxis().title('Room');
+
+            // Set container and draw chart
+            chart.container('scatterContainer');
+            chart.draw();
+        });
+    </script>
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+    console.log("Result JSON:", '{{ result|safe }}');
+      var data1 = {{ result|safe }};
+var data2 = {{ scat_json|safe }};
+
+    // Now you can use 'data1' and 'data2' as JavaScript objects
+    console.log("data1", data1);
+    console.log("data2", data2);
+        var combinedData = Object.assign({}, data1, data2);
+
+        console.log("combined",combinedData);
+
+        // Extract unique room names from combined data values
+        var rooms = ["bathroomappliance", "kitchenappliance", "bedroomappliance", "dininghallappliance", "livingroomappliance"];
+
+        // Initialize empty arrays to store the data points
+        var dataPoints1 = [];
+        var dataPoints2 = [];
+
+        // Iterate through the room names and create data points for each dataset
+        rooms.forEach(function(room, index) {
+    var energy1 = data1[room]; // Get energy value from data1 directly
+    var energy2 = data2[room]; // Get energy value from data2 directly
+
+    console.log("Room: " + room + ", Energy 1: " + energy1 + ", Energy 2: " + energy2);
+
+    // Add data points for dataset 1
+    dataPoints1.push({ x: index, y: energy1 });
+
+    // Add data points for dataset 2
+    dataPoints2.push({ x: index, y: energy2 });
+});
+        // Function to get the key from an object based on its value
+        function getKeyByValue(object, value) {
+            return Object.keys(object).find(key => object[key] === value);
+        }
+
+        console.log("Data Points 1:");
+        console.log(dataPoints1);
+        console.log("Data Points 2:");
+        console.log(dataPoints2);
+
+        // Generate legend text dynamically based on Rooms array
+        var legendText = "The Rooms With reference to the Numbers   ";
+        rooms.forEach(function(room, index) {
+            legendText += (index + 1) + "-" + room + "   ";
+        });
+
+        var chart = new CanvasJS.Chart("scatterContainer", {
+            title: {
+                text: "",
+                horizontalAlign: "right"
+            },
+            axisX: {
+                title: "Rooms",
+                valueFormatString: "########",
+                prefix: ""
+            },
+            axisY: {
+                title: "Energy Consumption",
+                valueFormatString: "#,##0.##",
+                minimum: 0,
+                maximum:3000
+            },
+            legend: {
+                verticalAlign: "bottom",
+                horizontalAlign: "left"
+            },
+            data: [
+                {
+                    type: "scatter",
+                    color: "#778899",
+                    legendText: legendText,
+                    showInLegend: "true",
+                    markerType: "triangle",
+                    dataPoints: dataPoints1
+                },
+                {
+                    type: "scatter",
+                    color: "#FFA500",
+                    legendText: legendText,
+                    showInLegend: "true",
+                    markerType: "triangle",
+                    dataPoints: dataPoints2
+                }
+            ]
+        });
+
+        chart.render();
+    }
+</script>
+
+
+
+</body>
+</html>
